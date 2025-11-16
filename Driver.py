@@ -1,7 +1,6 @@
 import subprocess
-from Student import Student
-from load_student import load_student
-
+from load_student import load_student_data
+from student_driver import student_driver
 
 def main_menu():
     while True:
@@ -21,44 +20,37 @@ def main_menu():
         elif choice == "3":
             print("Goodbye!")
             break
+
         else:
             print("Invalid choice. Try again.")
 
-
 def run_java_signup():
-    # Runs: java SignUp
     subprocess.run(["java", "SignUp"])
-
 
 def login():
     print("\n=== LOGIN ===")
-    name = input("Enter your name: ")
-    user_id = input("Enter your ID: ")
+    name = input("Enter your name: ").strip()
+    user_id = input("Enter your ID: ").strip()
 
-    prefix = user_id[:3]
-
-    if prefix == "900":
-        student = load_student(name, user_id)
+    if user_id.startswith("900"):
+        student = load_student_data(name, user_id)
 
         if student is None:
-            print("Invalid name or ID — student not found.")
+            print("Name or ID incorrect or student not found.")
             return
-
-        print(f"Welcome {student.full_name}!\n")
-
-    elif prefix == "700":
-        #This is where the Professor files would go 
-        #Make sure to read Trello
-        print(f"Welcome Professor!")
-
-    elif prefix == "800":
-        #This is where the Admin files would go 
-        #Make sure to read Trello
-        print(f"Welcome Admin!")
-
+        for _ in range(50):
+            print("\n")
+        print(f"Welcome {student.full_name}!")
+        student_driver(student)
     else:
-        print("Invalid ID prefix.")
+        print("Non-student logins not implemented yet.")
+        
 
+    if user_id.startswith("800"):
+        print("Admin login not implemented yet.")
+
+    if user_id.startswith("700"):
+        print("Professor login not implemented yet.")
 
 if __name__ == "__main__":
     main_menu()
