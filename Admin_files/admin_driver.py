@@ -94,4 +94,7 @@ def admin_driver(admin):
                     print(f"No schedule found for student {student_900}.")
 
         elif choice == "6":
-            
+            break
+
+        else:
+            print("Invalid choice. Try again.")
