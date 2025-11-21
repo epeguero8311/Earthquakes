@@ -1,0 +1,132 @@
+# Release #1 - Internal Summary
+
+## What We Built
+
+Release #1 lays the foundation for our university course management system. We've got the core structure in place with user accounts, course creation, and basic scheduling functionality.
+
+---
+
+## The Big Picture
+
+We now have a working system where:
+- Students, professors, and admins can sign up and log in
+- Admins can create courses and manage student schedules
+- Students can view their info and make basic updates
+- Everything saves to flat files in a structured database
+
+---
+
+## What Actually Got Done
+
+### 1. Account System (Java)
+Status: Complete 
+
+The signup flow is fully working:
+- Students can create accounts with their info (name, classification, major)
+- Professors and admins need a PIN to sign up (security feature)
+- Every account gets a unique ID (900s for students, 700s for professors, 800s for admins)
+- All accounts save to Database/Accounts.txt
+
+The system gives you 3 attempts to enter the PIN correctly before shutting down. No more brute forcing!
+
+### 2. Login & Routing (Python)
+Status: Complete
+
+The main menu (Driver.py) handles everything:
+- Sign up redirects to the Java program
+- Login checks your ID prefix and routes you to the right menu
+- Students go to student menu, admins go to admin menu
+- Professors, hasn't been compelted.
+
+### 3. Course Management System
+Status: Complete
+
+The Course class is pretty robust:
+- Auto-generates unique CRNs (5-digit course reference numbers)
+- Tracks course name, time, and enrolled students
+- Can add/remove students from courses
+- Saves course info to individual text files in Database/courses
+- Can search courses by CRN or course name
+
+### 4. Admin Portal
+Status: Mostly Complete
+
+Admins have 6 menu options:
+
+1. Create Course - Fully working. Admins input course details, and it saves everything to the database.
+2. View Student Schedule - Fully working. Enter a student's 900 number and see their classes.
+3. View Admin Info - Fully working. Shows admin ID and name.
+4. Create Student Schedule - Fully working. Can create schedules for multiple students in one session.
+5. Edit Student Schedule - Fully working. Add or remove courses from student schedules by CRN.
+6. Exit - Works.
+
+All the core admin functions are there. They can create courses, build student schedules from scratch, and modify them as needed.
+
+### 5. Student Portal
+Status: Complete 
+
+Students have 4 menu options:
+
+1. View Info - Shows their student number, name, classification, major, and fiscal clearance status
+2. Change Major - Updates their major
+3. Check Fiscal Clearance - See if they're cleared to register
+4. Exit - Logs out
+
+
+### 6. Database Structure
+Status: Complete 
+
+We've got a clean file-based database:
+
+Database/
+├── Accounts.txt              (all users)
+├── Courses.csv               (course reference)
+├── Security_Pins.txt         (PINs for prof/admin signup)
+├── University_Database.csv   (ID registry)
+└── courses/                  (individual course files)
+    ├── Comp Sci.txt
+    ├── Math 101.txt
+    └── ...
+
+Everything saves properly and loads back when you log in.
+
+---
+
+## What's Missing 
+
+### Professor Functionality
+Status: Not Started 
+
+The login system recognizes professors (700 IDs), but there's no professor menu or driver. Right now, professors just get a "Welcome Professor!" message and then... nothing. 
+
+This was supposed to be handled by other team members, but it didn't happen for Release #1.
+
+### What Professors Should Be Able to Do:
+- View their assigned courses
+- See enrolled students
+- Change course times
+- Drop students from their courses
+
+## File Structure
+
+Here's what we're working with:
+
+Main Files:
+- Driver.py - Main entry point
+- SignUp.java - Account creation
+- Functions.py - Helper functions
+
+Admin Files:
+- Admin.py - Admin class
+- admin_driver.py - Admin menu
+- load_admin.py - Load admin from database
+- Course.py - Course management
+
+Student Files:
+- Student.py - Student class
+- student_driver.py - Student menu
+- load_student.py - Load student from database`
+
+---
+
+Bottom Line: Release #1 delivered a working foundation for course management. Two out of three user types are fully functional, and the groundwork is there for professors once that gets implemented.
