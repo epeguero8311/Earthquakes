@@ -43,6 +43,22 @@ class Course:
         print("Class List:")
         for student in self.class_list:
             print(f"- {student}")
+
+def display_crn_desc(self, csv_path):
+    crns = []
+
+    with open(csv_path, mode="r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+
+        for row in reader:
+            if "crn" in row and row["crn"].isdigit():
+                crns.append(int(row["crn"]))
+
+    crns.sort(reverse=True)
+
+    for c in crns:
+        print(f"{crns.index[c]}. {c}")
+
     
     def change_time(self, new_time):
         self.time = new_time
