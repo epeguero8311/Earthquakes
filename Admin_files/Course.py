@@ -71,7 +71,7 @@ class Course:
         rows = []
         fieldnames = ["crn", "course_name", "time", "class_list", "professor"]
         crn_str = str(crn)
-        updated = False
+        updated_row = None
 
         # Read existing rows if file exists
         if csv_path.exists():
@@ -88,25 +88,22 @@ class Course:
         for r in rows:
             if r.get("crn") == crn_str:
                 r["professor"] = professor_name
-                updated = True
+                updated_row = r
                 break
 
         # If not found, append a new row with professor populated
-        if not updated:
-            rows.append({
-                "crn": crn_str,
-                "course_name": "",
-                "time": "",
-                "class_list": "",
-                "professor": professor_name,
-            })
-
+        if updated_row is None:
+            print("CRN not found in database. Please try creating a course with this CRN before assigning a professor to it.")
+            return None
+        
         # Write everything back with the professor column ensured
         with open(csv_path, mode="w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             for r in rows:
                 writer.writerow({k: r.get(k, "") for k in fieldnames})
+        
+        return updated_row
 
 
     def change_time(self, new_time):
