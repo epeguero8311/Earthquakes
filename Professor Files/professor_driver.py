@@ -77,8 +77,8 @@ def professor_driver(professor):
             
             if crn in Course.courses_by_crn:
                 course = Course.courses_by_crn[crn]
-                 print(f"\nCourse: {course.course_name}")
-                 print(f"Current Time: {course.time}")
+                print(f"\nCourse: {course.course_name}")
+                print(f"Current Time: {course.time}")
                 
                 new_time = input("Enter new time (e.g., MWF 10-11AM): ").strip()
                 course.change_time(new_time)
