@@ -61,3 +61,35 @@ class Admin:
 
         print(f"Transcript saved to {csv_path}")
         
+    def print_transcript(self, student_id):
+        csv_path = "Database/Transcripts.csv"
+
+        # Ensure file exists
+        csv_file = Path(csv_path)
+        if not csv_file.exists():
+            print(f"Error: {csv_path} does not exist.")
+            return
+
+        found = False
+
+        print("=== Transcript Search Results ===")
+
+        with open(csv_path, mode="r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+
+            for row in reader:
+                if row.get("Student_ID") == str(student_id):
+                    found = True
+
+                    print("\n--- Transcript Record ---")
+                    print(f"Student Name: {row.get('Student_name')}")
+                    print(f"Student ID: {row.get('Student_ID')}")
+                    print(f"Courses List: {row.get('Courses_list')}")
+                    print(f"Year: {row.get('year')}")
+                    print(f"Semester: {row.get('semester')}")
+                    print(f"Credits: {row.get('credits')}")
+
+        if not found:
+            print(f"No transcript found for Student ID: {student_id}")
+        else:
+            print("\n=== End of Records ===")
