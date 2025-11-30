@@ -1,0 +1,200 @@
+# Release #2 - Internal Summary
+
+## What We Built
+
+Release #2 completes the professor functionality that was missing from Release #1 and adds several admin management tools. We now have a fully functional three-portal system with enhanced scheduling capabilities.
+
+---
+
+## The Big Picture
+
+Since Release #1, we:
+- Completed the professor portal with full menu functionality
+- Added fiscal clearance management for admins
+- Implemented automated schedule generation
+- Enhanced course management with credits and professor assignments
+- Built comprehensive test suites for system validation
+- Improved user interface with welcome messages and visual elements
+
+---
+
+## What Actually Got Done
+
+### 1. Professor Portal
+Status: Complete 
+
+The professor functionality that was missing in Release #1 is now fully operational. Professors can now:
+
+**Professor Menu (5 options):**
+1. View Assigned Courses - See all courses they're teaching with full details (CRN, course name, time, enrollment count)
+2. See Enrolled Students - View the roster for any of their courses
+3. Change Course Time - Update meeting times for their courses (saves to database)
+4. Drop Student from Course - Remove students from their classes (with confirmation)
+5. Exit - Log out
+
+**Technical Implementation:**
+- Professor class with ID, name, department, and assigned courses list
+- professor_driver.py handles the menu and course interactions
+- load_professor.py fetches professor data from the database
+- Professors are properly routed through Driver.py (700 IDs)
+- All changes save to course files in real-time
+
+### 2. Admin Portal Enhancements
+Status: Complete 
+
+Admins gained two major new capabilities:
+
+**Fiscal Clearance Management (New Option 7):**
+- Admins can look up any student by their 900 number
+- View current fiscal clearance status (Cleared/Not Cleared)
+- Toggle clearance status with multi-step confirmation
+- Changes save to Database/Accounts.txt
+- Built-in safety: requires explicit confirmation before saving
+
+**Automated Schedule Creation:**
+- Admin can now auto-generate student schedules based on available courses
+- System automatically selects courses up to 19 credit hours
+- Shows generated schedule with total credits
+- Admin can accept as-is or manually edit
+- Option to add/remove courses interactively
+- Automatically enrolls student in selected courses
+
+The admin menu now has 7 options total (was 6 in Release #1).
+
+### 3. Course Management System Upgrades
+Status: Complete 
+
+Significant enhancements to the Course class:
+
+**Course Credits:**
+- Every course now has a credit value (default: 3)
+- Credits display when viewing course details
+- Credits factor into schedule generation
+
+**Professor Assignment:**
+- New assign_professor() method assigns faculty to courses
+- Stores professor name in Courses.csv
+- Professor field appears when printing course details
+- Shows "Not Assigned" if no professor has been set
+
+**Display Improvements:**
+- display_crn_desc() method lists all CRNs in descending order
+- Course registry (courses_by_crn) enables class-level course lookups
+- Better formatting for course information displays
+
+**Technical Changes:**
+- Course.py constructor now takes credits parameter
+- Course files (Database/courses/*.txt) updated to include credits and professor fields
+- All course saving/loading updated to handle new fields
+
+### 4. Testing Infrastructure
+Status: Complete 
+
+Comprehensive test coverage was added across the system:
+
+**Test Files Created:**
+- test_student.py - Tests all Student class methods
+- test_professor.py - Tests all Professor class methods  
+- test_professor_driver.py - Tests professor menu functionality
+- test_load_professor.py - Tests professor data loading
+- test_course.py - Tests Course class methods including new features
+
+All test files use Python's unittest framework. This significantly improves code reliability and makes future changes safer.
+
+### 5. Database & File Structure Updates
+Status: Complete 
+
+**New Files:**
+- Database/Attendance.csv - For professor attendance tracking (structure in place)
+- Professor Files/ folder - Contains all professor-related code
+
+**Updated Files:**
+- Database/Courses.csv - Now includes credits and professor columns
+- All course files in Database/courses/ - Updated format with new fields
+
+**File Organization:**
+- Student files consolidated into Student_files/ folder
+- Professor files organized in Professor Files/ folder
+- Test files placed in their respective feature folders
+
+### 6. User Interface Improvements
+Status: Complete 
+
+Small but meaningful enhancements to user experience:
+
+- Welcome messages added to admin_driver.py
+- Introduction message added to student view info menu
+- ASCII art pencil displays before major information
+- ASCII art in Student.py prints correctly (line endings fixed)
+- Clear screen function adjusted for better display (reduced from 50 to 3 newlines)
+
+### 7. Bug Fixes & Code Quality
+Status: Complete 
+
+**Fixes Applied:**
+- Line ending normalization (CRLF → LF) for cross-platform compatibility
+- Course methods edited to ensure all tests pass
+- Error handling improved in professor assignment
+- Code organization improvements across multiple files
+
+---
+
+## What's Still Missing
+
+Nothing major! All three user types (students, professors, admins) now have fully functional portals.
+
+**Minor Gaps:**
+- Attendance tracking infrastructure exists but isn't actively used yet
+- Some edge cases in schedule creation could use refinement
+
+---
+
+## File Structure
+
+**Main Files:**
+- Driver.py - Main entry point (routes all three user types)
+- SignUp.java - Account creation
+- Functions.py - Helper functions (significantly expanded)
+
+**Admin Files:**
+- Admin.py - Admin class
+- admin_driver.py - Admin menu (now 7 options)
+- load_admin.py - Load admin from database
+- Course.py - Course management (enhanced with credits, professor assignment)
+- test_course.py - Course testing suite
+
+**Professor Files:** (NEW)
+- Professor.py - Professor class
+- professor_driver.py - Professor menu (5 options)
+- load_professor.py - Load professor from database
+- test_professor.py - Professor class tests
+- test_professor_driver.py - Professor menu tests
+- test_load_professor.py - Professor loading tests
+
+**Student Files:**
+- Student.py - Student class (improved UI)
+- student_driver.py - Student menu
+- load_student.py - Load student from database
+- test_student.py - Student testing suite
+
+---
+
+## Statistics
+
+**Lines Added Since Release #1:**
+- Total additions: ~1,790 lines of code
+- New test coverage: ~800+ lines
+- New professor functionality: ~500+ lines
+- Enhanced admin/course features: ~300+ lines
+
+**Commits Since Release #1:** 48 commits
+
+**Files Modified:** 44 files
+
+**New Test Files:** 5 comprehensive test suites
+
+---
+
+## Bottom Line
+
+Release #2 transforms the system from a two-portal foundation into a complete three-portal course management solution. The professor functionality gap from Release #1 is resolved, admins have powerful new tools for managing students and schedules, and the entire system is backed by comprehensive testing. All three user types can now perform their core functions end-to-end.
