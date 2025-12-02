@@ -5,7 +5,7 @@ import sys
 student_folder = Path(__file__).parent / "Student files"
 sys.path.insert(0, str(student_folder))
 
-from load_student import load_student
+from Student_files.load_student import load_student
 
 def clear_screen():
     for _ in range(3):

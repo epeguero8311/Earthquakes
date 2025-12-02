@@ -1,4 +1,4 @@
-from Student import Student
+from .Student import *
 from pathlib import Path
 
 def load_student(user_id, database=None):
