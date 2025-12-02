@@ -1,0 +1,7 @@
+crn: 37357
+credits: 3
+course_name: CPSC 2740
+time: TTH 10:50-12:05
+professor: none
+
+students:

@@ -9,9 +9,9 @@ from Admin_files.admin_driver import admin_driver
 student_folder = Path(__file__).parent / "Student files"
 sys.path.insert(0, str(student_folder))
 
-from Student import Student
-from load_student import load_student
-from student_driver import student_driver
+from Student_files.Student import Student
+from Student_files.load_student import load_student
+from Student_files.student_driver import student_driver
 
 def main_menu():
     while True:
