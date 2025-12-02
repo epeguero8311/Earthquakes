@@ -28,6 +28,18 @@ Prioritized Project Ideas:
 
 ----------------------------------------------------------------
 
+How to Run:
+
+1.Clone the repo
+2.Open the cloned repo on vs code
+3.Open the terminal
+4.Run javac SignUp.java to create the class
+5.In the terminal run the command that best fits your device:
+      python Driver.py
+      python3 Driver.py
+      python -m Driver
+
+
 File Structure:
 Earthquakes/                              ← project root (current folder)
 │
