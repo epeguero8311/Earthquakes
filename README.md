@@ -27,6 +27,7 @@ Prioritized Project Ideas:
 6. CPSC Course Offerings
 
 ----------------------------------------------------------------
+README:
 
 Purpose/Goal of this project:
 This project is a command-line university management system designed to simulate how students, professors, and administrators interact with an academic database. When the program runs, users log in with an ID that determines their role. Students can view their schedules, update their major, and check fiscal clearance. Professors can see their assigned classes, review enrolled students, and make updates to course information. Administrators have full control — they can create courses, assign professors, manage student accounts, and generate transcripts.
@@ -48,6 +49,46 @@ How to Run:
       python Driver.py
       python3 Driver.py
       python -m Driver
+
+How to test:
+1. Test the Student Portal (900… IDs)
+
+      Use any account beginning with 900
+
+      Confirms:
+      Loading student data from Student_files/load_student.py
+      Viewing/changing major (student_driver.py)
+      Viewing schedules and fiscal clearance
+      Reading data from course files in Database/courses/
+
+2. Test the Professor Portal (700… IDs)
+
+      Use any account beginning with 700
+
+      Confirms:
+      Loading professor profiles via load_professor.py
+      Viewing assigned courses in professor_driver.py
+      Adding/dropping students
+      Updating course files inside Database/courses/
+
+3. Test the Admin Portal (800… IDs)
+
+      Use any account beginning with 800
+
+      Confirms:
+      Admin loading through Admin_files/load_admin.py
+      Creating new courses (Course.py)
+      Assigning professors and managing students (admin_driver.py)
+      Generating transcripts (writes to Database/Transcripts.csv)
+      Updating CRN .txt files in Database/courses/
+
+4. Test Data Files
+
+You can edit or add test users directly in:
+
+      Database/Accounts.txt
+      Course behavior can be tested with the .txt files inside:
+      Database/courses/
 
 
 File Structure:
