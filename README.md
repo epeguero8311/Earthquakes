@@ -6,10 +6,10 @@
 - [ ] Each team member must update our team's **Statement of Work** shared Excel spreadsheet.  Your grade on this assignment is based ONLY on the quality of your use cases, your GitHub contributions that result in accepted pull requests, and 10% of your grade will be assigned by your fellow team members.
 - [ ] **Chloe** must finish her pushes to our repo by 8 PM on Dec 1st and then check this box.
 - [x] **DeAnna** must finish her pushes to our repo by 8 PM on Dec 1st and then check this box.
-- [ ] **Emilio** must finish his pushes to our repo by 8 PM on Dec 1st and then check this box.
+- [x] **Emilio** must finish his pushes to our repo by 8 PM on Dec 1st and then check this box.
 - [ v/] **Taylor** must finish her pushes to our repo by 8 PM on Dec 1st and then check this box.
-- [ ] **Emilio** must do one last check that the code builds, runs, and all the tests run by 10 PM on Dec 1st and then check this box.
-- [ ] **Emilio** must "Project Release" tag our repo.
+- [x] **Emilio** must do one last check that the code builds, runs, and all the tests run by 10 PM on Dec 1st and then check this box.
+- [x] **Emilio** must "Project Release" tag our repo.
 - [ ] Everyone must complete the Brightspace survey to earn the final points for Assignment08.
 - [ ] Everyone should complete the Class Climate survey to help Dr. Edwards improve her teaching.
 
