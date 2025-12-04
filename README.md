@@ -1,5 +1,24 @@
 # Earthquakes
 
+
+## What happens when Dr. Edwards runs your code ($ python main.py)
+
+```
+$ javac SignUp.java
+$ python3 Driver.py
+
+===== MAIN MENU =====
+1. Sign Up
+2. Log In
+3. Exit
+Enter choice:
+```
+
+
+## What happens when Dr. Edwards runs your tests ($ python main.py)
+
+You provided no instructions on how to run your tests.  I see a few files in directories and in the project root directory that begin with the word "test" but I don't see instructions for running tests in your README.
+
 ## Final Release Checklist
 - [x] README states purpose, contributors, and how to build, run, and test all the code from the CLI.  Build and run should not assume everyone is using a particular IDE (so don't assume users can click a Run button or use VSC's Command Prompt commands.
 - [x] SDD has the project description, outline, architecture (including UML class diagrams), and all project user stories and use cases.
