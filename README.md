@@ -248,3 +248,19 @@ Class: Course
 -------------------------------
 
 User Case Stories are found in trello-board-export
+--------------------------------
+
+How to Test:
+1.Clone the repo
+2.Open the cloned repo on vs code
+3.Open the terminal
+4.Run javac SignUp.java to create the class
+5.In the terminal run the commands that best fits your device:
+python -m unittest Admin_files.test_admin -v
+python3 -m unittest Admin_files.test_admin -v
+
+python -m unittest Admin_files.test_course -v
+python3 -m unittest Admin_files.test_course -v
+
+python -m unittest Student_files.test_student -v
+python3 -m unittest Student_files.test_student -v
